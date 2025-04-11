@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## Propiedades de los estados
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Value
 
-## Available Scripts
+Indica el nombre del estado actual
+Cuando se tiene una máquina padre y esta tiene una máquina hija, este nombre del estado actual pasa de ser una cadena de texto a un objeto
+Dicho objeto dice el estado tanto de la máquina padre como la máquina hija
 
-In the project directory, you can run:
+# Context
 
-### `npm start`
+Da el contexto del estado actual
+Nos permite guardar valores (Objetos, arrays, etc.)
+Es un pedazo de la máquina donde se va guardando y actualizando los valores
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Event
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El nombre del evento anterior que nos trajo al estado actual
 
-### `npm test`
+# Action
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Es un array que contiene las acciones que ejecutan algún estado
+Son funciones de ejecutar y olvidar
 
-### `npm run build`
+# Activities (⚠️ Deprecated)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Listado de actividades indicando si están en progreso o no
+Las actividades a diferencia de las acciones (ejecutar y olvidar) son cosas más permanentes (Invocar un servicio, observable)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# History
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Indica el estado anterior
+Se implementa cuando deseamos saber cuál fue el estado anterior en caso de condicionales
 
-### `npm run eject`
+# Meta
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Sección de metadata dentro del estado
+Nos permite poner valores asociados al estado, los cuales serán permanentes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# NextEvents
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Es un array de los posibles eventos que podemos ejecutar a partir del estado actual
+Métodos de los estados
+matches(nombre del estado) ⇒ Pasando el nombre de un estado nos responde si dicho estado es el actual o no
+Nos ayuda a ver si estamos en un estado tanto de la máquina padre o hijo
+can(nombre del evento) ⇒ Pasando el nombre de un evento nos indica si podemos ejecutarlo
